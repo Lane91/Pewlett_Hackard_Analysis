@@ -167,3 +167,10 @@ FROM dept_info AS di
 INNER JOIN retirement_info AS ri
 ON (di.emp_no = ri.emp_no)
 WHERE dept_name IN ('Sales', 'Development')
+
+SELECT COUNT(me.emp_no),
+me.title
+INTO eligible_mentors
+FROM mentorship_eligibility AS me
+GROUP BY title
+ORDER BY COUNT(title) DESC; 
